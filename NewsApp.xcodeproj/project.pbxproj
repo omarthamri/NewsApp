@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486E0A192319D29D00ECDF7E /* ChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E0A182319D29D00ECDF7E /* ChoiceCollectionViewCell.swift */; };
+		486E0A1B2319D87200ECDF7E /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E0A1A2319D87200ECDF7E /* Choice.swift */; };
 		48E697142319C718005522DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E697132319C718005522DC /* AppDelegate.swift */; };
 		48E697162319C718005522DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E697152319C718005522DC /* HomeViewController.swift */; };
 		48E6971C2319C718005522DC /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48E6971A2319C718005522DC /* NewsApp.xcdatamodeld */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		486E0A182319D29D00ECDF7E /* ChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		486E0A1A2319D87200ECDF7E /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		48E697102319C718005522DC /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E697132319C718005522DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48E697152319C718005522DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		48E697452319C8D3005522DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				486E0A182319D29D00ECDF7E /* ChoiceCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		48E697462319C8DA005522DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				486E0A1A2319D87200ECDF7E /* Choice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				48E697162319C718005522DC /* HomeViewController.swift in Sources */,
+				486E0A1B2319D87200ECDF7E /* Choice.swift in Sources */,
 				48E697142319C718005522DC /* AppDelegate.swift in Sources */,
 				48E6971C2319C718005522DC /* NewsApp.xcdatamodeld in Sources */,
+				486E0A192319D29D00ECDF7E /* ChoiceCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
