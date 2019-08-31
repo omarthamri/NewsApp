@@ -11,7 +11,7 @@ import UIKit
 class CategoryView: UIView {
     
     let categoryCellId = "categoryCellId"
-    let categoryArray = [Category(name: "Today",selected: true),Category(name: "Business",selected: false),Category(name: "Technology",selected: false),Category(name: "Health",selected: false)]
+    var categoryArray = [Category(name: "Today",selected: true),Category(name: "Business",selected: false),Category(name: "Technology",selected: false),Category(name: "Health",selected: false)]
     
     lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -64,5 +64,18 @@ extension CategoryView: UICollectionViewDelegate,UICollectionViewDataSource,UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 0 {
+            categoryArray = [Category(name: "Today",selected: true),Category(name: "Business",selected: false),Category(name: "Technology",selected: false),Category(name: "Health",selected: false)]
+        } else if indexPath.item == 1 {
+            categoryArray = [Category(name: "Today",selected: false),Category(name: "Business",selected: true),Category(name: "Technology",selected: false),Category(name: "Health",selected: false)]
+        } else if indexPath.item == 2 {
+            categoryArray = [Category(name: "Today",selected: false),Category(name: "Business",selected: false),Category(name: "Technology",selected: true),Category(name: "Health",selected: false)]
+        } else if indexPath.item == 3 {
+            categoryArray = [Category(name: "Today",selected: false),Category(name: "Business",selected: false),Category(name: "Technology",selected: false),Category(name: "Health",selected: true)]
+        }
+        collectionView.reloadData()
     }
 }
