@@ -31,7 +31,7 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         return cniv
     }()
     
-    let trendingTypeView: UIView = {
+    let categoryTypeView: UIView = {
         let ttv = UIView()
         ttv.backgroundColor = UIColor.orange
         ttv.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         ttv.clipsToBounds = true
         return ttv
     }()
-    let trendingTypeLbl: UILabel = {
+    let categoryTypeLbl: UILabel = {
         let tl = UILabel()
         tl.text = "Finance"
         tl.textColor = UIColor.white
@@ -47,6 +47,18 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         tl.translatesAutoresizingMaskIntoConstraints = false
         tl.textAlignment = .center
         return tl
+    }()
+    
+    let categoryTitleLbl: UILabel = {
+        let ttl = UILabel()
+        ttl.text = "The biggest differences between Apple's new credit card and most other cards"
+        ttl.numberOfLines = 0
+        ttl.textAlignment = .left
+        ttl.lineBreakMode = .byWordWrapping
+        ttl.textColor = UIColor.darkGray
+        ttl.translatesAutoresizingMaskIntoConstraints = false
+        ttl.font = UIFont.systemFont(ofSize: 11)
+        return ttl
     }()
     
     override init(frame: CGRect) {
@@ -63,18 +75,21 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.init(white: 0.97, alpha: 1)
         addSubview(categoryListBackgroundImgView)
         addSubview(categoryNewImgView)
-        addSubview(trendingTypeView)
-        trendingTypeView.addSubview(trendingTypeLbl)
+        addSubview(categoryTypeView)
+        categoryTypeView.addSubview(categoryTypeLbl)
+        addSubview(categoryTitleLbl)
     }
     
     func setupConstraints() {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-5-[v0]-5-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryListBackgroundImgView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-1-[v0]-1-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryListBackgroundImgView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0(110)]-10-[v1(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryNewImgView,"v1":trendingTypeView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0(110)]-10-[v1(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryNewImgView,"v1":categoryTypeView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-14-[v0]-11-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryNewImgView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-25-[v0(15)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingTypeView]))
-        trendingTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingTypeLbl]))
-        trendingTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingTypeLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-25-[v0(15)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeView]))
+        categoryTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeLbl]))
+        categoryTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-40-[v0(40)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTitleLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-136-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTitleLbl]))
     }
     
     
