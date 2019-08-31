@@ -28,6 +28,12 @@ class HomeViewController: UIViewController {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
+    
+    let categoryView: CategoryView = {
+       let cv = CategoryView()
+      cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +47,9 @@ class HomeViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.init(white: 0.97, alpha: 1)
         view.addSubview(trendingView)
+        view.addSubview(categoryView)
         view.addSubview(choiceCollectionView)
         choiceCollectionView.register(ChoiceCollectionViewCell.self, forCellWithReuseIdentifier: choiceCellId)
     }
@@ -51,7 +58,8 @@ class HomeViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceCollectionView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(80)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceCollectionView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(300)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(300)]-10-[v1]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView,"v1":categoryView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[v0]-15-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryView]))
     }
     
     
