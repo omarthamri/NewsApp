@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceCollectionView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(80)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceCollectionView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(250)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(300)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
     }
     
     
