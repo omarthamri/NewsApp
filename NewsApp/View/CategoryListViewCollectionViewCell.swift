@@ -11,6 +11,20 @@ import UIKit
 class CategoryListViewCollectionViewCell: UICollectionViewCell {
     
     
+    var newCategory: NewsCategory? {
+        didSet {
+            if let title = newCategory?.title {
+                categoryTitleLbl.text = title
+            }
+            if let image = newCategory?.image {
+                categoryNewImgView.image = UIImage(named: image)
+            }
+            if let type = newCategory?.type {
+                categoryTypeLbl.text = type
+            }
+        }
+    }
+    
     let categoryListBackgroundImgView: UIImageView = {
        let clbv = UIImageView()
         clbv.image = UIImage(named: "btn")
@@ -23,7 +37,6 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
     
     let categoryNewImgView: UIImageView = {
         let cniv = UIImageView()
-        cniv.image = UIImage(named: "apple_card")
         cniv.contentMode = .scaleToFill
         cniv.layer.cornerRadius = 5
         cniv.clipsToBounds = true
@@ -41,7 +54,6 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
     }()
     let categoryTypeLbl: UILabel = {
         let tl = UILabel()
-        tl.text = "Finance"
         tl.textColor = UIColor.white
         tl.font = UIFont.boldSystemFont(ofSize: 7)
         tl.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +63,6 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
     
     let categoryTitleLbl: UILabel = {
         let ttl = UILabel()
-        ttl.text = "The biggest differences between Apple's new credit card and most other cards"
         ttl.numberOfLines = 0
         ttl.textAlignment = .left
         ttl.lineBreakMode = .byWordWrapping
@@ -59,6 +70,27 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         ttl.translatesAutoresizingMaskIntoConstraints = false
         ttl.font = UIFont.systemFont(ofSize: 11)
         return ttl
+    }()
+    
+    let writerImgView: UIImageView = {
+        let wiv = UIImageView()
+        wiv.image = UIImage(named: "pencil")
+        wiv.contentMode = .scaleToFill
+        wiv.clipsToBounds = true
+        wiv.layer.cornerRadius = 5
+        wiv.translatesAutoresizingMaskIntoConstraints = false
+        wiv.tintColor = UIColor.gray
+        return wiv
+    }()
+    
+    let writerLbl: UILabel = {
+        let wl = UILabel()
+        wl.text = "Omar Thamri"
+        wl.textColor = UIColor.gray
+        wl.font = UIFont.boldSystemFont(ofSize: 8)
+        wl.translatesAutoresizingMaskIntoConstraints = false
+        wl.textAlignment = .left
+        return wl
     }()
     
     override init(frame: CGRect) {
@@ -78,6 +110,8 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         addSubview(categoryTypeView)
         categoryTypeView.addSubview(categoryTypeLbl)
         addSubview(categoryTitleLbl)
+        addSubview(writerImgView)
+        addSubview(writerLbl)
     }
     
     func setupConstraints() {
@@ -88,8 +122,10 @@ class CategoryListViewCollectionViewCell: UICollectionViewCell {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-25-[v0(15)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeView]))
         categoryTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeLbl]))
         categoryTypeView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTypeLbl]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-40-[v0(40)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTitleLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-40-[v0(40)]-5-[v1(10)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTitleLbl,"v1":writerImgView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-136-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryTitleLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-136-[v0(10)]-10-[v1(100)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":writerImgView,"v1":writerLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-85-[v0(10)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":writerLbl]))
     }
     
     

@@ -22,6 +22,7 @@ class CategoryListView: UIView {
     }()
     
     let categoryListViewCollectionViewCellId = "categoryListViewCollectionViewCellId"
+    let newsCategoryArray = [NewsCategory(image: "apple_card",title: "The biggest differences between Apple's new credit card and most other cards",type: "Finance"),NewsCategory(image: "secure",title: "This tech could secure voting machines, but not before 2020",type: "Finance"),NewsCategory(image: "tim_cook",title: "Apple invites press to September 10th event, confirming iPhone 11 launch date",type: "Technology")]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,11 +49,12 @@ class CategoryListView: UIView {
 
 extension CategoryListView: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return newsCategoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryListViewCollectionViewCellId, for: indexPath) as! CategoryListViewCollectionViewCell
+        cell.newCategory = newsCategoryArray[indexPath.item]
         return cell
     }
     
