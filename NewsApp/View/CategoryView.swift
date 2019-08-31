@@ -23,6 +23,12 @@ class CategoryView: UIView {
         return ccv
     }()
     
+    let categoryListView: CategoryListView = {
+        let clv = CategoryListView()
+        clv.translatesAutoresizingMaskIntoConstraints = false
+        return clv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -37,11 +43,13 @@ class CategoryView: UIView {
         backgroundColor = UIColor.init(white: 0.97, alpha: 1)
         addSubview(categoryCollectionView)
         categoryCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: categoryCellId)
+        addSubview(categoryListView)
     }
     
     func setupConstraints() {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryCollectionView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(30)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryCollectionView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(30)]-10-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryCollectionView,"v1":categoryListView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryListView]))
     }
     
 }
