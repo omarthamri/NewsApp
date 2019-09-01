@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485115BE231C78F200A40708 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485115BD231C78F200A40708 /* NewsDetailViewController.swift */; };
 		486E0A192319D29D00ECDF7E /* ChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E0A182319D29D00ECDF7E /* ChoiceCollectionViewCell.swift */; };
 		486E0A1B2319D87200ECDF7E /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E0A1A2319D87200ECDF7E /* Choice.swift */; };
 		48CB8DA8231AB91600862C3F /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB8DA7231AB91600862C3F /* TrendingView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		485115BD231C78F200A40708 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		486E0A182319D29D00ECDF7E /* ChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		486E0A1A2319D87200ECDF7E /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		48CB8DA7231AB91600862C3F /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				48E697152319C718005522DC /* HomeViewController.swift */,
+				485115BD231C78F200A40708 /* NewsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				48CB8DAE231AE19F00862C3F /* CategoryCollectionViewCell.swift in Sources */,
 				48CB8DB6231B0E1E00862C3F /* NewsCategory.swift in Sources */,
 				48CB8DA8231AB91600862C3F /* TrendingView.swift in Sources */,
+				485115BE231C78F200A40708 /* NewsDetailViewController.swift in Sources */,
 				48E6971C2319C718005522DC /* NewsApp.xcdatamodeld in Sources */,
 				48CB8DAC231ADB9600862C3F /* CategoryView.swift in Sources */,
 				486E0A192319D29D00ECDF7E /* ChoiceCollectionViewCell.swift in Sources */,

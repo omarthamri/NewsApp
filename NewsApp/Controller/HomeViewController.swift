@@ -29,8 +29,9 @@ class HomeViewController: UIViewController {
         return tv
     }()
     
-    let categoryView: CategoryView = {
+    lazy var categoryView: CategoryView = {
        let cv = CategoryView()
+        cv.homeViewController = self
       cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
@@ -60,6 +61,11 @@ class HomeViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(300)]-10-[v1]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":trendingView,"v1":categoryView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[v0]-15-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":categoryView]))
+    }
+    
+    func displayDetailNew() {
+        let newsDetailViewController = NewsDetailViewController()
+        navigationController?.pushViewController(newsDetailViewController, animated: true)
     }
     
     

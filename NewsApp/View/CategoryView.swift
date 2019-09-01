@@ -12,7 +12,11 @@ class CategoryView: UIView {
     
     let categoryCellId = "categoryCellId"
     var categoryArray = [Category(name: "Today",selected: true),Category(name: "Business",selected: false),Category(name: "Technology",selected: false),Category(name: "Health",selected: false)]
-    
+    var homeViewController: HomeViewController? {
+        didSet {
+            categoryListView.homeViewController = homeViewController
+        }
+    }
     lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -23,7 +27,7 @@ class CategoryView: UIView {
         return ccv
     }()
     
-    let categoryListView: CategoryListView = {
+    lazy var categoryListView: CategoryListView = {
         let clv = CategoryListView()
         clv.translatesAutoresizingMaskIntoConstraints = false
         return clv

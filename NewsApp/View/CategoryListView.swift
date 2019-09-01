@@ -20,7 +20,7 @@ class CategoryListView: UIView {
         clvcv.backgroundColor = UIColor.init(white: 0.97, alpha: 1)
         return clvcv
     }()
-    
+    var homeViewController: HomeViewController?
     let categoryListViewCollectionViewCellId = "categoryListViewCollectionViewCellId"
     let newsCategoryArray = [NewsCategory(image: "apple_card",title: "The biggest differences between Apple's new credit card and most other cards",type: "Finance"),NewsCategory(image: "secure",title: "This tech could secure voting machines, but not before 2020",type: "Finance"),NewsCategory(image: "tim_cook",title: "Apple invites press to September 10th event, confirming iPhone 11 launch date",type: "Technology")]
     
@@ -66,7 +66,10 @@ extension CategoryListView: UICollectionViewDelegate,UICollectionViewDataSource,
         return 0
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        homeViewController?.displayDetailNew()
+    }
     
     
     
