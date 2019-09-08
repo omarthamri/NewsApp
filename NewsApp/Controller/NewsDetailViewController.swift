@@ -31,7 +31,7 @@ class NewsDetailViewController: UIViewController {
     func setupView() {
         view.backgroundColor = UIColor.white
         view.addSubview(newDetailCV)
-        newDetailCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: newDetailCVCellId)
+        newDetailCV.register(NewDetailCollectionViewCell.self, forCellWithReuseIdentifier: newDetailCVCellId)
         newDetailCV.register(NewImgCollectionViewCell.self, forCellWithReuseIdentifier: NewImgCollectionViewCellId)
     }
     
@@ -54,7 +54,7 @@ class NewsDetailViewController: UIViewController {
 extension NewsDetailViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,13 +63,15 @@ extension NewsDetailViewController: UICollectionViewDelegate,UICollectionViewDat
             cell.newsDetailViewController = self
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newDetailCVCellId, for: indexPath)
-        cell.backgroundColor = UIColor.yellow
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newDetailCVCellId, for: indexPath) as! NewDetailCollectionViewCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 3)
+        if indexPath.item == 0 {
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 3)
+        }
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height * 2 / 3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
