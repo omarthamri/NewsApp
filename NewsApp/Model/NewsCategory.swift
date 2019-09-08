@@ -13,10 +13,16 @@ class NewsCategory: NSObject {
     var image: String?
     var title: String?
     var type: String?
+    var author: String?
+    var time: String?
+    var detail: String?
     
-    init(image: String?,title: String?,type: String?) {
+    init(image: String?,title: String?,type: String?,author: String?,time: String?,detail: String?) {
         self.image = image
         self.title = title
         self.type = type
+        self.author = author
+        self.time = time
+        self.detail = detail
     }
 }

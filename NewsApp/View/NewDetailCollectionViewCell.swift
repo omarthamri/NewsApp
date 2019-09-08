@@ -19,6 +19,15 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
             if let type = newsCategory?.type {
             typeLbl.text = type
             }
+            if let author = newsCategory?.author {
+                writerLbl.text = author
+            }
+            if let time = newsCategory?.time {
+                timeLbl.text = time
+            }
+            if let detail = newsCategory?.detail {
+                detailLbl.text = detail
+            }
         }
     }
     
@@ -33,7 +42,6 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
     
     let typeLbl: UILabel = {
         let tl = UILabel()
-        tl.text = "Finance"
         tl.textColor = UIColor.white
         tl.font = UIFont.boldSystemFont(ofSize: 8)
         tl.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +62,6 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
     
     let timeLbl: UILabel = {
         let tl = UILabel()
-        tl.text = "09:00"
         tl.textColor = UIColor.gray
         tl.font = UIFont.systemFont(ofSize: 12)
         tl.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +71,6 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
     
     let titleLbl: UILabel = {
         let ttl = UILabel()
-        ttl.text = "Apple invites press to September 10th event, confirming iPhone 11 launch date"
         ttl.numberOfLines = 0
         ttl.textAlignment = .left
         ttl.lineBreakMode = .byWordWrapping
@@ -87,7 +93,6 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
     
     let writerLbl: UILabel = {
         let wl = UILabel()
-        wl.text = "Omar Thamri"
         wl.textColor = UIColor.gray
         wl.font = UIFont.boldSystemFont(ofSize: 8)
         wl.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +109,6 @@ class NewDetailCollectionViewCell: UICollectionViewCell {
     
     let detailLbl: UILabel = {
         let ttl = UILabel()
-        ttl.text = "Guess what, Apple fans… it’s official: the new iPhone 11 smartphone lineup will be unveiled on September 10th. Apple just sent invitations to reporters and bloggers for a press conference that will be held at its headquarters in Cupertino, California on Tuesday, September 10th. If that date sounds familiar it’s because BGR pegged it weeks ago as the date on which Apple would be unveiling its next-generation iPhone lineup. As soon as an executive from one of Apple’s carrier partners accidentally revealed that the iPhone 11 series will be released on September 20th, we knew that Apple would make the announcement on the 10th. Wednesday of that week would normally have been Apple’s go-to day for its big iPhone press conference, but that Wednesday happens to fall on September 11th this year. \nApple’s invitations for this year’s iPhone event will undoubtedly be analyzed and picked apart by hardcore Apple fans and bloggers, but the bottom line is that there really isn’t that much left to be revealed next month when Apple finally makes the iPhone 11 series official. Pretty much everything has leaked at this point, though the names of the new phones."
         ttl.numberOfLines = 0
         ttl.textAlignment = .left
         ttl.lineBreakMode = .byWordWrapping
