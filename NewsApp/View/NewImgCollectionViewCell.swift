@@ -10,6 +10,14 @@ import UIKit
 
 class NewImgCollectionViewCell: UICollectionViewCell {
     
+    var newsCategory: NewsCategory? {
+        didSet {
+            if let image = newsCategory?.image {
+                newImg.image = UIImage(named: image)
+            }
+        }
+    }
+    
     let newImg: UIImageView = {
        let newImg = UIImageView()
         newImg.image = UIImage(named: "tim_cook")

@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var newsCategory: NewsCategory?
+    
     lazy var choiceCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -65,6 +67,7 @@ class HomeViewController: UIViewController {
     
     func displayDetailNew() {
         let newsDetailViewController = NewsDetailViewController()
+        newsDetailViewController.newsCategory = newsCategory
         navigationController?.pushViewController(newsDetailViewController, animated: true)
     }
     

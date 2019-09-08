@@ -10,6 +10,18 @@ import UIKit
 
 class NewDetailCollectionViewCell: UICollectionViewCell {
     
+    
+    var newsCategory: NewsCategory? {
+        didSet {
+            if let title = newsCategory?.title {
+                titleLbl.text = title
+            }
+            if let type = newsCategory?.type {
+            typeLbl.text = type
+            }
+        }
+    }
+    
     let typeView: UIView = {
         let ttv = UIView()
         ttv.backgroundColor = UIColor.orange

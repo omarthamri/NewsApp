@@ -10,6 +10,7 @@ import UIKit
 
 class NewsDetailViewController: UIViewController {
     
+    var newsCategory: NewsCategory?
     lazy var newDetailCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -44,6 +45,10 @@ class NewsDetailViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func backAction() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
@@ -61,9 +66,11 @@ extension NewsDetailViewController: UICollectionViewDelegate,UICollectionViewDat
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewImgCollectionViewCellId, for: indexPath) as! NewImgCollectionViewCell
             cell.newsDetailViewController = self
+            cell.newsCategory = newsCategory
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newDetailCVCellId, for: indexPath) as! NewDetailCollectionViewCell
+        cell.newsCategory = newsCategory
         return cell
     }
     
